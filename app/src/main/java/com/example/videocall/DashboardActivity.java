@@ -54,6 +54,18 @@ public class DashboardActivity extends AppCompatActivity {
                 JitsiMeetActivity.launch(DashboardActivity.this, options);
             }
         });
+        
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String string = secreteCodebox.getText().toString();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,string);
+                intent.setType("text/plain");
+                startActivity(intent);
+            }
+        });
 
 
     }
